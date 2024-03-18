@@ -2,7 +2,12 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '3.2.1'
     id 'io.spring.dependency-management' version '1.1.4'
+    id("com.github.johnrengelman.shadow") version "7.1.0"
 }
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'application'
 
 group = 'medika.it'
 version = '0.0.1-SNAPSHOT'
@@ -21,7 +26,15 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'org.postgresql:postgresql'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    implementation 'org.liquibase:liquibase-core' // нет коннекта к liquibase.properties надо бы добавить для возможности автоматического отката
+//    implementation 'org.liquibase:liquibase-core' // нет коннекта к liquibase.properties надо бы добавить для возможности автоматического отката
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'medika.it.equipment_manager.EquipmentManagerApplication'
+        )
+    }
 }
 
 

@@ -5,13 +5,15 @@ import medika.it.equipment_manager.entity.DeviceEntity;
 import medika.it.equipment_manager.entity.DeviceTypeEntity;
 import medika.it.equipment_manager.entity.UserEntity;
 import medika.it.equipment_manager.repository.TypeRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
+import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class Device
 {
-    private static TypeRepo typeRepo;
     private Long id;
 
 
@@ -31,7 +33,7 @@ public class Device
     private Boolean divided = false;
     private String EXTRA = null;
 
-    private Type type;   // написать автомаптическое присваивание
+    private List<Сharacteristic> сharacteristics;
     public static Device toModel (DeviceEntity entity)
     {
         Device model = new Device();
@@ -46,13 +48,12 @@ public class Device
         model.setEXTRA(entity.getEXTRA());
         model.setManager(entity.getManager());
         try {
-            // тут какая-то хуйня
-            Long id = entity.getId();
-            DeviceTypeEntity type = typeRepo.findById(id).get();
-            model.setType(Type.toModel(type));
+            //model.setSubs(entity.getSubs().stream().map(Subdivision::toModel).collect(Collectors.toList())); // массив сушности в массив моделей
+            model.setСharacteristics(entity.getCharacteristics().stream().map(Сharacteristic::toModel).collect(Collectors.toList()));
         }
-        catch (Exception e) {
-            model.setType(null);
+        catch (Exception e)
+        {
+            model.setСharacteristics(null);
         }
 
         return model;
@@ -77,13 +78,6 @@ public class Device
         this.id = id;
     }
 
-    public Type getType() {
-        return type;
-    }
-
-    public void setType(Type type) {
-        this.type = type;
-    }
 
     public String getBrand() {
         return Brand;
@@ -155,5 +149,13 @@ public class Device
 
     public void setEXTRA(String EXTRA) {
         this.EXTRA = EXTRA;
+    }
+
+    public List<Сharacteristic> getСharacteristics() {
+        return сharacteristics;
+    }
+
+    public void setСharacteristics(List<Сharacteristic> сharacteristics) {
+        this.сharacteristics = сharacteristics;
     }
 }

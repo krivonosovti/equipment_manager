@@ -1,15 +1,12 @@
 package medika.it.equipment_manager.service;
 
-import medika.it.equipment_manager.entity.CharacteristicEntity;
-import medika.it.equipment_manager.entity.DeviceEntity;
-import medika.it.equipment_manager.entity.UserEntity;
+import medika.it.equipment_manager.entity.*;
 import medika.it.equipment_manager.exception.UserNotFoundException;
 import medika.it.equipment_manager.model.Device;
+import medika.it.equipment_manager.model.Type;
+import medika.it.equipment_manager.model.Value;
 import medika.it.equipment_manager.model.Сharacteristic;
-import medika.it.equipment_manager.repository.CharacteristicRepo;
-import medika.it.equipment_manager.repository.DeviceRepo;
-import medika.it.equipment_manager.repository.TypeRepo;
-import medika.it.equipment_manager.repository.UserRepo;
+import medika.it.equipment_manager.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +18,14 @@ public class CharacteristicService {
     @Autowired
     private CharacteristicRepo characteristicRepo;
 
-    public Сharacteristic addC (CharacteristicEntity characteristic){
+    @Autowired
+    private DeviceRepo deviceRepo;
+
+
+    public Сharacteristic addC (CharacteristicEntity characteristic, Long deviceId)
+    {
+        DeviceEntity device = deviceRepo.findById(deviceId).get();
+        characteristic.setDevice(device);
         characteristicRepo.save(characteristic);
         return Сharacteristic.toModel(characteristic);
     }

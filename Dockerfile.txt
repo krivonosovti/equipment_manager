@@ -1,0 +1,13 @@
+FROM adoptopenjdk:11-jre-hotspot
+LABEL authors="krivonosovti"
+ARG JAR_FILE=target/*.jar
+#нужно создать нормальный jar вайл
+COPY ${JAR_FILE} equipment_manager.jar
+EXPOSE 8080
+#WORKDIR /work
+#RUN javac src/main/java/medika/it/equipment_manager/EquipmentManagerApplication.java
+#CMD [ "java", "EquipmentManagerApplication"]
+
+ENTRYPOINT ["java", "-jar", "/equipment_manager-0.0.1-SNAPSHOT-plain.jar"]
+
+

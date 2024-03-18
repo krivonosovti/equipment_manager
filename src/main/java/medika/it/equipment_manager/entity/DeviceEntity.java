@@ -32,6 +32,10 @@ public class DeviceEntity {
     private UserEntity user;
 
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "device")
+    private List<CharacteristicEntity> characteristics;
+
+
 
     public void setUser(UserEntity user) {
         this.user = user;
@@ -129,5 +133,11 @@ public class DeviceEntity {
         this.EXTRA = EXTRA;
     }
 
+    public List<CharacteristicEntity> getCharacteristics() {
+        return characteristics;
+    }
 
+    public void setCharacteristics(List<CharacteristicEntity> characteristics) {
+        this.characteristics = characteristics;
+    }
 }

@@ -1,9 +1,6 @@
 package medika.it.equipment_manager.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.springframework.lang.NonNull;
 
 @Entity
@@ -15,7 +12,22 @@ public class CharacteristicEntity {
     @NonNull
     private String  title;
 
+    @ManyToOne
+    @JoinColumn(name = "device_id")
+    private DeviceEntity device;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private ValueEntity value;
     public CharacteristicEntity() {
+    }
+
+
+    public ValueEntity getValue() {
+        return value;
+    }
+
+    public void setValue(ValueEntity value) {
+        this.value = value;
     }
 
     public Long getId() {
@@ -33,5 +45,13 @@ public class CharacteristicEntity {
 
     public void setTitle(@NonNull String title) {
         this.title = title;
+    }
+
+    public DeviceEntity getDevice() {
+        return device;
+    }
+
+    public void setDevice(DeviceEntity device) {
+        this.device = device;
     }
 }

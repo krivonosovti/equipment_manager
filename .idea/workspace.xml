@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c68cdc54-f8a0-40e6-8f8a-03a54d52e409" name="Changes" comment="New Changes" />
+    <list default="true" id="c68cdc54-f8a0-40e6-8f8a-03a54d52e409" name="Changes" comment="First main commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,6 +47,18 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="c53dd9a1-ff3e-42dd-ac47-9295d9c54a11" />
+        <option name="url" value="https://github.com/krivonosovti/equipment_manager.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
@@ -231,6 +243,7 @@
       <workItem from="1710762121494" duration="2000000" />
       <workItem from="1710847669336" duration="509000" />
       <workItem from="1711007356912" duration="438000" />
+      <workItem from="1711010023576" duration="909000" />
     </task>
     <task id="LOCAL-00001" summary="&#10;k">
       <option name="closed" value="true" />
@@ -240,7 +253,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706355506569</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="First main commit">
+      <option name="closed" value="true" />
+      <created>1711010250235</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1711010250235</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,7 +298,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first" />
     <MESSAGE value="&#10;k" />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;k" />
+    <MESSAGE value="First main commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="First main commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
